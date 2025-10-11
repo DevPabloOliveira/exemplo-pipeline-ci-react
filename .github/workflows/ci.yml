@@ -1,0 +1,36 @@
+# Nome do workflow
+name: CI ReactJS
+
+# Gatilho: rodar em pull requests para estas branches
+on:
+  pull_request:
+    branches:
+      - main
+      - development
+      - release
+      - 'features/*'
+
+# Trabalhos (jobs) a serem executados
+jobs:
+  build-and-test:
+    # Sistema operacional da máquina virtual
+    runs-on: ubuntu-latest
+
+    # Passos da automação
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configura Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Instala dependências
+        run: npm install
+
+      - name: Executa testes
+        run: npm test -- --watchAll=false
+
+      - name: Executa build
+        run: npm run build
