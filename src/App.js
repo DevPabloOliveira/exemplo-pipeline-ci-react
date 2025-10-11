@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Demonstração do pipeline de CI/CD para a apresentação de DevOps!
         </p>
         <a
           className="App-link"
